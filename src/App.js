@@ -1,24 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+
+import { Box } from "@mui/material";
+import React from "react";
+import CommentSection from "./components/CommentSection";
+
+const AllComments = [
+  {
+    id: 'n1',
+    name: 'John Cena',
+    time: '1 Month Ago',
+    comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, magnam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, minus!',
+  },
+  {
+    id: 'n2',
+    name: 'Tega Anthony',
+    time: '2 Month Ago',
+    comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, magnam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, minus!',
+  },
+  {
+    id: 'n3',
+    name: 'Anthony Joshua',
+    time: '3 Month Ago',
+    comment: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, magnam? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, minus!',
+  }
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <Box >
+     <CommentSection 
+        name={AllComments[0].name}
+        time={AllComments[0].time}
+        comment={AllComments[0].comment}
+     />
+
+<CommentSection 
+        name={AllComments[1].name}
+        time={AllComments[1].time}
+        comment={AllComments[1].comment}
+     />
+
+<CommentSection 
+        name={AllComments[2].name}
+        time={AllComments[2].time}
+        comment={AllComments[2].comment}
+     />
+  </Box>
+  
+  
+ 
   );
 }
 
