@@ -24,26 +24,40 @@ const AllComments = [
   }
 ];
 
-function App() {
+const AllReplies = [
+  {
+    id: 1,
+    comment_id: "n1",
+    name: "John Nike",
+    time: "23, AUG 2022",
+    comment: "first reply 1"
+  },
+  {
+    id: 2,
+    comment_id: "n2",
+    name: "John Nike",
+    time: "23, AUG 2022",
+    comment: "first reply 2"
+  },
+  {
+    id: 3,
+    comment_id: "n3",
+    name: "John Nike",
+    time: "23, AUG 2022",
+    comment: "second reply 1"
+  },
+]
+
+
+
+const App = () => {
+  
   return (
-  <Box >
-     <CommentSection 
-        name={AllComments[0].name}
-        time={AllComments[0].time}
-        comment={AllComments[0].comment}
-     />
-
-<CommentSection 
-        name={AllComments[1].name}
-        time={AllComments[1].time}
-        comment={AllComments[1].comment}
-     />
-
-<CommentSection 
-        name={AllComments[2].name}
-        time={AllComments[2].time}
-        comment={AllComments[2].comment}
-     />
+  <Box>
+    <CommentSection 
+     items={AllComments}
+     replys={AllReplies}
+    />
   </Box>
   
   

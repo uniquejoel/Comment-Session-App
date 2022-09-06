@@ -12,9 +12,11 @@ const StyledBox = styled(Box)({
 })
 
 
-const ReplySection = () => {
+
+const ReplySection = (props) => {
+
   return (
-    <StyledBox>
+    <StyledBox >
         <Box bgcolor="white" p={3} borderRadius={5} margin={1} >
         <Stack direction="row"  bgcolor="white" gap={3}>
                 <Box flex={1}>

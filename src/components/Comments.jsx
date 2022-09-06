@@ -2,11 +2,9 @@ import styled from '@emotion/styled'
 import { Reply } from '@mui/icons-material'
 import { Avatar,  FormControlLabel, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
+import React, { useState } from 'react'
 import BtnReverse from './BtnReverse'
-
-
-
+import ReplySection from './ReplySection'
 
 const UserBox = styled(Box) ({
     display: "flex"
@@ -14,9 +12,15 @@ const UserBox = styled(Box) ({
 })
 
 const Comments = (props) => {
+  const [ReplyOpen, setReplyOpen] = useState(false);
+
+  const ReplyHandler = () => {
+    setReplyOpen(true)
+    
+  }
+
   return (
-   
-    <Box
+      <Box
         flex={6}
         margin={2}
     >
@@ -44,6 +48,8 @@ const Comments = (props) => {
           sx={{color:"blue",
           display: {xs: "none", sm: "none", md: "block"}
         }}
+        // onClick={ReplyHandler}
+      
           value="top"
           control={<Reply/>}
           label="Reply"
@@ -54,8 +60,6 @@ const Comments = (props) => {
             </Box>
         </Stack>
 
-       
-        
         
             <Typography variant='h6' fontWeight={100}
                 sx={{
@@ -74,6 +78,8 @@ const Comments = (props) => {
           sx={{color:"blue",
           display: {xs: "block", sm: "block", md: "none"}
         }}
+          // onClick={ReplyHandler}
+          // onClose={ReplyOpen}
           value="top"
           control={<Reply/>}
           label="Reply"
@@ -82,7 +88,7 @@ const Comments = (props) => {
         </Box>
         </Stack>
 
-       
+   
     </Box>
     
 

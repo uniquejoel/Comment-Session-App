@@ -4,7 +4,8 @@ import { Box } from '@mui/system'
 import React from 'react'
 import BtnCounting from './BtnCounting'
 import Comments from './Comments'
-import ReplySection from './ReplySection'
+import Replies from './Replies'
+
 
 const StyledBox = styled(Box)({
     alignItems: "center",
@@ -14,21 +15,28 @@ const StyledBox = styled(Box)({
    
 })
 
-const CommentSection = (props) => {
-  return (
-    <StyledBox>
-        <Box  bgcolor="white" p={3} borderRadius={5} margin={3}>
-           <Stack direction="row"  bgcolor="white">
-                <BtnCounting />
+const CommentSection = ({items,replys}) => {
+  const RealComments = items.map((comment) => (
+    <StyledBox key={comment.id}>
+    <Box  bgcolor="white" p={3} borderRadius={5} margin={3}>
+       <Stack direction="row"  bgcolor="white">
+            <BtnCounting />
+             
                 <Comments 
-                  name={props.name}
-                  time={props.time}
-                  comment={props.comment}
+                name={comment.name}
+                time={comment.time}
+                comment={comment.comment}
                 />
-           </Stack>
-        </Box>
-        <ReplySection />
-    </StyledBox>
+                </Stack>
+    </Box>
+    <Replies reply={replys} id={comment.id}/>
+</StyledBox>
+  ))
+
+  return (
+    <Box>
+        {RealComments}
+    </Box>
   )
 }
 
