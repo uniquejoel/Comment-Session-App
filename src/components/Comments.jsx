@@ -4,7 +4,7 @@ import { Avatar,  FormControlLabel, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import React, { useState } from 'react'
 import BtnReverse from './BtnReverse'
-import ReplySection from './ReplySection'
+
 
 const UserBox = styled(Box) ({
     display: "flex"
@@ -12,13 +12,6 @@ const UserBox = styled(Box) ({
 })
 
 const Comments = (props) => {
-  const [ReplyOpen, setReplyOpen] = useState(false);
-
-  const ReplyHandler = () => {
-    setReplyOpen(true)
-    
-  }
-
   return (
       <Box
         flex={6}
