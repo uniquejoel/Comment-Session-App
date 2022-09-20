@@ -1,90 +1,106 @@
 import styled from '@emotion/styled'
-import { Reply } from '@mui/icons-material'
-import { Avatar,  FormControlLabel, Stack, Typography } from '@mui/material'
+import { Reply} from '@mui/icons-material'
+import { Avatar, FormControlLabel, Stack, Typography } from '@mui/material'
 import { Box } from '@mui/system'
-import React from 'react'
+import {React,useState} from 'react'
 import BtnReverse from './BtnReverse'
+import ReplySection from './ReplySection'
+import Replies from './Replies'
 
 
-const UserBox = styled(Box) ({
-    display: "flex"
-    
+const UserBox = styled(Box)({
+  display: "flex"
+
 })
 
+
+
 const Comments = (props) => {
+  const [show, setShow] = useState(false);
+
   return (
-      <Box
-        flex={6}
-        margin={2}
+ <>
+    <Box
+      flex={6}
+      margin={2}
     >
 
-        <Stack direction="row" spacing={0} justifyContent="space-between">
-            <Box>
-            <UserBox gap={1}>
+      <Stack direction="row" spacing={0} justifyContent="space-between">
+        <Box>
+          <UserBox gap={1}>
             <Avatar alt="Remy Sharp" src="https://images.pexels.com/photos/11293719/pexels-photo-11293719.jpeg?auto=compress&cs=tinysrgb&w=600" />
-   
-     
-        <Typography variant='span' fontWeight={300} mt={1.5}>
-            {props.name}
-        </Typography>
 
-        <Typography variant='span' fontWeight={200} mt={1.5} color="gray">
-        {props.time}
-        </Typography> 
-  
-            </UserBox>
-            </Box>
 
-            <Box>
+            <Typography variant='span' fontWeight={300} mt={1.5}>
+              {props.name}
+            </Typography>
 
-    <FormControlLabel
-          sx={{color:"blue",
-          display: {xs: "none", sm: "none", md: "block"}
-        }}
-        // onClick={ReplyHandler}
-      
-          value="top"
-          control={<Reply/>}
-          label="Reply"
-          labelPlacement="top"
-        />
-      
-            
-            </Box>
-        </Stack>
+            <Typography variant='span' fontWeight={200} mt={1.5} color="gray">
+              {props.time}
+            </Typography>
 
-        
-            <Typography variant='h6' fontWeight={100}
-                sx={{
-                    textAlign: {xs: "center", sm: "left"}
-                }}
-            >
-          { props.comment}
-        </Typography>
+          </UserBox>
+        </Box>
 
-        <Stack direction="row" spacing={2} justifyContent="space-between" mt={2}>
         <Box>
-           <BtnReverse />
+
+          <FormControlLabel
+            sx={{
+              color: "blue",
+              display: { xs: "none", sm: "none", md: "block" }
+            }}
+            onClick={() => {
+              setShow((prev) => !prev)
+            }}
+            value="top"
+            control={<Reply />}
+            label="Reply"
+            labelPlacement="top"
+          />
+
+
+        </Box>
+      </Stack>
+
+
+      <Typography variant='h6' fontWeight={100}
+        sx={{
+          textAlign: { xs: "center", sm: "left" }
+        }}
+      >
+        {props.comment}
+      </Typography>
+
+      <Stack direction="row" spacing={2} justifyContent="space-between" mt={2}>
+        <Box>
+          <BtnReverse />
         </Box>
         <Box>
-        <FormControlLabel
-          sx={{color:"blue",
-          display: {xs: "block", sm: "block", md: "none"}
-        }}
-          // onClick={ReplyHandler}
-          // onClose={ReplyOpen}
-          value="top"
-          control={<Reply/>}
-          label="Reply"
-          labelPlacement="top"
-        />
+          <FormControlLabel
+            sx={{
+              color: "blue",
+              display: { xs: "block", sm: "block", md: "none" }
+            }}
+            onClick={() => {
+              setShow((prev) => !prev)
+            }}
+            value="top"
+            control={<Reply />}
+            label="Reply"
+            labelPlacement="top"
+          />
         </Box>
-        </Stack>
+      </Stack>
 
-   
+      
     </Box>
-    
 
+{show && <ReplySection/> }
+
+
+
+ </>
+      
 
   )
 }

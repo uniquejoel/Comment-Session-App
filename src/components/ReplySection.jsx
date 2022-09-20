@@ -2,6 +2,7 @@ import styled from '@emotion/styled'
 import { Avatar, Button, ButtonGroup, TextField } from '@mui/material'
 import { Box, Stack } from '@mui/system'
 import React from 'react'
+import { useState } from 'react'
 
 const StyledBox = styled(Box)({
     display: "flex",
@@ -14,7 +15,20 @@ const StyledBox = styled(Box)({
 
 
 const ReplySection = (props) => {
+  const [commentReply, setCommentReply] = useState('');
 
+  const addReplyHandler = (event) => {
+    event.preventDefault();
+    if (commentReply.trim().length === 0) {
+      return;
+    }
+    console.log(commentReply);
+    setCommentReply('');
+  }
+
+  const replyChangeHandler = (event) => {
+    setCommentReply(event.target.value);
+  }
   return (
     <StyledBox >
         <Box bgcolor="white" p={3} borderRadius={5} margin={1} >
@@ -28,11 +42,14 @@ const ReplySection = (props) => {
                        
                       }} 
                 >
-                <TextField fullWidth  id="fullWidth" />
+                <TextField fullWidth  id="fullWidth" value={commentReply} onChange={replyChangeHandler}/>
                 </Box>
                 <Box flex={2}>
                 <ButtonGroup fullWidth variant="contained" aria-label="outlined primary button group">
-                    <Button>Post</Button>
+                    <Button 
+                      onClick={addReplyHandler}
+                    >Post
+                    </Button>
                 </ButtonGroup>
                 </Box>
         </Stack>

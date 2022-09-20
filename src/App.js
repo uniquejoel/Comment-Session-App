@@ -1,6 +1,7 @@
 
 import { Box } from "@mui/material";
 import React from "react";
+
 import CommentSection from "./components/CommentSection";
 
 const AllComments = [
@@ -30,33 +31,33 @@ const AllReplies = [
     comment_id: "n1",
     name: "John Nike",
     time: "23, AUG 2022",
-    comment: "first reply 1"
+    comment: "first reply "
   },
   {
     id: 2,
     comment_id: "n2",
     name: "John Nike",
     time: "23, AUG 2022",
-    comment: "first reply 2"
+    comment: "second reply "
   },
   {
     id: 3,
     comment_id: "n3",
     name: "John Nike",
     time: "23, AUG 2022",
-    comment: "second reply 1"
+    comment: "third reply"
   },
 ]
 
 
-
 const App = () => {
-  
+
   return (
   <Box>
     <CommentSection 
      items={AllComments}
      replys={AllReplies}
+    
     />
   </Box>
   
